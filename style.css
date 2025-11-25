@@ -1,0 +1,200 @@
+.page1 {
+    height: 100%;
+    margin: 0;
+}
+
+.body1 {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+.clickme {
+    padding: 12px 25px;
+    font-size: 40px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #c77dff, #9d4edd, #7b2cbf);
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    margin-top: 90px;
+    transition: transform 0.15s ease, box-shadow 0.2s ease;
+    position: relative;
+    overflow: visible;
+    opacity: 1;
+}
+
+.clickme:active {
+    transform: scale(0.9);
+    box-shadow: 0 0 10px #d63384;
+
+}
+
+.clickme::after {
+    content: "🌟";
+    position: absolute;
+    font-size: 22px;
+    opacity: 0;
+    animation: star 0.4s forwards;
+}
+
+.star {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    font-size: 20px;
+    pointer-events: none;
+    will-change: transform, opacity;
+    opacity: 1;
+    animation: star 650ms forwards cubic-bezier(.2, .8, .2, 1);
+    text-shadow: 0 0 8px rgba(255,200,255,.9), 0 0 18px rgba(200,120,255,.6);
+}
+
+@keyframes star {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -100%) scale(0.1) rotate(0deg);
+    }
+
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -200%) scale(1.4) rotate(20deg);
+    }
+
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -300%) scale(0.6) rotate(-20deg);
+    }
+}
+
+.star:active::after {
+    left: 50%;
+    top: 50%;
+}
+
+.counter {
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #ffffff;
+    position: relative;
+    background: linear-gradient(135deg, #c77dff, #9d4edd, #7b2cbf);
+    border-radius: 20px;
+    padding: 10px;
+    opacity: 1;
+}
+
+.click {
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #ffffff;
+    background: linear-gradient(135deg, #c77dff, #9d4edd, #7b2cbf);
+    border-radius: 20px;
+    padding: 9px 5px 10px 9px;
+    position: relative;
+    right: -1px;
+    opacity: 1;
+}
+
+.conteneur {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    z-index: 1;
+    margin-top: 200px;
+}
+
+.backgroundimg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('src/fond noir.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0;
+    filter: none;
+}
+
+
+
+
+.page2 .body2 {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.backgroundimg2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('src/why me why me why me why me why me.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    pointer-events: none;
+    filter: sepia(1) saturate(100) hue-rotate(-30deg);
+}
+
+
+.brain {
+    height: 600px;
+    width: 600px;
+    z-index: 1;
+    filter: none;
+}
+
+.brain:active {
+    transform: scale(0.9);
+
+}
+
+
+.btndoll {
+    position: absolute;
+    height: 200px;
+    width: 200px;
+    z-index: 1;
+    filter: none;
+    cursor: pointer;
+    top: 150px;
+    left: 150px;
+    transition: opacity 0.5s ease;
+    
+}
+
+.imgdoll{
+    height: 200px;
+    width: 200px;
+    display: block;
+    filter: drop-shadow(0 0 35px rgba(255,255,255,0.9)) drop-shadow(0 0 20px rgba(255,255,255,0.7));
+    opacity: 0;
+}
+
+.conteneur2 {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
