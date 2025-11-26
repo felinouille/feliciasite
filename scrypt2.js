@@ -10,6 +10,7 @@ const doll = document.querySelector(".btndoll");
 const dollimg = document.querySelector(".imgdoll");
 const container = document.querySelector(".page2 .body2");
 const background = document.querySelector(".backgroundimg2");
+const dollcounter = document.querySelector(".dollcounter");
 let counter = 0;
 let numbOfDoll = 1;
 let moveInterval = null;
@@ -24,6 +25,7 @@ brain.addEventListener("click", () => {
         checklist();
         backAmbiance();
         songInterval = setInterval(backAmbiance, 16000);
+        console.log(counter)
 
         if (counter >= 10 && moveInterval === null) {
         moveInterval = setInterval(spawnItem, 5000);
@@ -34,24 +36,25 @@ brain.addEventListener("click", () => {
 
 function checklist() {
     switch (counter) {
-        case 20:
+        case 5:
             brain.style.filter = "sepia(0.2) saturate(1.5) hue-rotate(-5deg) brightness(1.03) contrast(1.05)";
             break;
         
-        case 40:
+        case 10:
             brain.style.filter = "sepia(0.2) saturate(2) hue-rotate(-5deg) brightness(1.03) contrast(1.05)";
             break;
 
-        case 60:
+        case 15:
             brain.style.filter = "sepia(0.2) saturate(2.5) hue-rotate(-5deg) brightness(1.03) contrast(1.05)";
             break;
 
-        case 80:
+        case 20:
             brain.style.filter = "sepia(0.2) saturate(3) hue-rotate(-5deg) brightness(1.03) contrast(1.05)";
             break;
 
-        case 100:
+        case 25:
             brain.style.filter = "sepia(0.2) saturate(3.5) hue-rotate(-5deg) brightness(1.03) contrast(1.05)";
+            brain.disabled = true;
             break;
 
     
@@ -60,24 +63,43 @@ function checklist() {
     }
 }
 
+
 function checklistDoll() {
+
+    const dollclone = document.querySelectorAll('.btndoll.clone');
+
     switch (numbOfDoll) {
-        case 5:            
-            changePage();
+        case 3:     
+        doll.style.filter =  "sepia(0.2) saturate(1.5) hue-rotate(-5deg) brightness(1.03) contrast(1.05)";
+        dollclone.forEach (btn => {
+            btn.style.filter =  "sepia(0.2) saturate(1.5) hue-rotate(-5deg) brightness(1.03) contrast(1.05)";
+        });
             break;
             
-        case 10:            
+        case 7:  
+        doll.style.filter =  "sepia(0.2) saturate(2) hue-rotate(-5deg) brightness(1.03) contrast(1.05)";
+        dollclone.forEach (btn => {
+            btn.style.filter =  "sepia(0.2) saturate(2) hue-rotate(-5deg) brightness(1.03) contrast(1.05)";
+        });        
             break;
 
-        case 15:            
+        case 12:   
+        doll.style.filter =  "sepia(0.2) saturate(3) hue-rotate(-5deg) brightness(1.03) contrast(1.05)";
+        dollclone.forEach (btn => {
+            btn.style.filter =  "sepia(0.2) saturate(3) hue-rotate(-5deg) brightness(1.03) contrast(1.05)";
+        });       
             break;
 
-        case 20: 
-            brain.style.opacity = "0";
-            brain.disabled = true;         
+        case 15: 
+            brain.disabled = true;  
+            doll.style.filter =  "sepia(0.2) saturate(4) hue-rotate(-5deg) brightness(1.03) contrast(1.05)";
+            dollclone.forEach (btn => {
+            btn.style.filter =  "sepia(0.2) saturate(4) hue-rotate(-5deg) brightness(1.03) contrast(1.05)";
+        });        
             break;
 
-        case 25:
+        case 19:
+            changePage();
             break;
 
     
@@ -131,18 +153,20 @@ doll.addEventListener("click", () => {
     duplicateDoll(doll);
     checklistDoll();
     numbOfDoll++
+    dollcounter.innerHTML = numbOfDoll + "/20";
     console.log(numbOfDoll);
 });
 
 function changePage() {
     // retirer tous les clone
-    const clones = document.querySelectorAll(".clone");
-    clones.forEach(clone => clone.remove());
+    const dollclone = document.querySelectorAll('.btndoll.clone');
+    dollclone.forEach(clone => clone.remove());
     doll.remove();
     brain.remove();
+    dollcounter.remove();
     background.style.filter = "none";
     background.style.backgroundImage = "url('src/ya quoi dans ma tête(2).jpg')";
-    setTimeout(() => background.style.backgroundImage = "url('src/ya quoi dans ma tête(1).jpg')", 5000);
+    setTimeout(() => background.style.backgroundImage = "url('src/ya quoi dans ma tête(1).jpg')", 3000);
     sessionStorage.setItem("autorisePage3", "true");
-    setTimeout(() => window.location.href = "page3.html", 10000);
+    setTimeout(() => window.location.href = "page3.html", 6000);
 }

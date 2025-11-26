@@ -162,6 +162,14 @@
 
 }
 
+.brain:disabled, .brain.disabled:active {
+    transform: none;
+    transform: none; 
+    transition: none;
+    pointer-events: none;      
+    opacity: 0.7;
+}
+
 
 .btndoll {
     position: absolute;
@@ -197,4 +205,18 @@
     align-items: center;
     justify-content: center;
     gap: 20px;
+}
+
+.btndoll.clone {
+    filter: none;
+    opacity: 1;
+}
+
+.dollcounter {
+    position: absolute;
+    font-size: 60px;
+    top: 5px;
+    right: 50px;
+    color: #fff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
