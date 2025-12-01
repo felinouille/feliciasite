@@ -262,7 +262,6 @@
     transform: translate(-50%, -50%);
     height: 400px;
     width: 600px;
-    border: 2px solid rgb(255, 255, 255);
     z-index: 1;
 }
 
@@ -278,41 +277,60 @@
     width: 580px;
     margin-top: 0px;
     margin-bottom: 10px;
+    font-size: 45px;
+    color: #f2bebe;
+    text-align: center;
+    font-family: "Lacquer", system-ui;
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
+
 
 .petiteImg {
     width: 580px;
     height: 277px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
 }
 
 .organe {
     position: absolute;
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
+    left: 45%;
+    top: 3%;
 }
 
 .couteau {
     position: absolute;
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
+    left: 2%;
+    top: 40%;
 }
 
 .insecte {
     position: absolute;
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
+    left: 93%;
+    top: 60%;
 }
 
 .porte {
     position: absolute;
     top: 49%;
-    left: 49%;
-    width: 40px;
-    height: 60px;
+    left: 48%;
+    width: 50px;
+    height: 70px;
+    opacity: 0;
 }
 
 .perso {
     position: absolute;
-    width: 30px;
-    height: 30px;
+    width: 45px;
+    height: 45px;
+    left: 49%;
+    top: 92%;
+    transform: translate(none, none);
 }
