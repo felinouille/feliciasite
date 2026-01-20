@@ -69,28 +69,28 @@ function checklistDoll() {
     const dollclone = document.querySelectorAll('.btndoll.clone');
 
     switch (numbOfDoll) {
-        case 3:     
+        case 1:     
         doll.style.filter =  "sepia(0.2) saturate(1.5) hue-rotate(-5deg) brightness(1.03) contrast(1.05)";
         dollclone.forEach (btn => {
             btn.style.filter =  "sepia(0.2) saturate(1.5) hue-rotate(-5deg) brightness(1.03) contrast(1.05)";
         });
             break;
             
-        case 7:  
+        case 2:  
         doll.style.filter =  "sepia(0.2) saturate(2) hue-rotate(-5deg) brightness(1.03) contrast(1.05)";
         dollclone.forEach (btn => {
             btn.style.filter =  "sepia(0.2) saturate(2) hue-rotate(-5deg) brightness(1.03) contrast(1.05)";
         });        
             break;
 
-        case 12:   
+        case 3:   
         doll.style.filter =  "sepia(0.2) saturate(3) hue-rotate(-5deg) brightness(1.03) contrast(1.05)";
         dollclone.forEach (btn => {
             btn.style.filter =  "sepia(0.2) saturate(3) hue-rotate(-5deg) brightness(1.03) contrast(1.05)";
         });       
             break;
 
-        case 15: 
+        case 4: 
             brain.disabled = true;  
             doll.style.filter =  "sepia(0.2) saturate(4) hue-rotate(-5deg) brightness(1.03) contrast(1.05)";
             dollclone.forEach (btn => {
@@ -98,7 +98,7 @@ function checklistDoll() {
         });        
             break;
 
-        case 19:
+        case 5:
             changePage();
             break;
 
@@ -153,7 +153,7 @@ doll.addEventListener("click", () => {
     duplicateDoll(doll);
     checklistDoll();
     numbOfDoll++
-    dollcounter.innerHTML = numbOfDoll + "/20";
+    dollcounter.innerHTML = numbOfDoll + "/5";
     console.log(numbOfDoll);
 });
 
