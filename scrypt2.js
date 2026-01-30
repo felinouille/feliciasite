@@ -18,6 +18,7 @@ let laughInterval = null;
 let ambiance = new Audio('audio/creepy-ring-around-the-rosie-33890.mp3');
 let laungh = new Audio('audio/witch-laugh-401713.mp3');
 let songInterval = null;
+let dollTab = [];
 
 
 brain.addEventListener("click", () => {
@@ -69,28 +70,28 @@ function checklistDoll() {
     const dollclone = document.querySelectorAll('.btndoll.clone');
 
     switch (numbOfDoll) {
-        case 1:     
+        case 5:     
         doll.style.filter =  "sepia(0.2) saturate(1.5) hue-rotate(-5deg) brightness(1.03) contrast(1.05)";
         dollclone.forEach (btn => {
             btn.style.filter =  "sepia(0.2) saturate(1.5) hue-rotate(-5deg) brightness(1.03) contrast(1.05)";
         });
             break;
             
-        case 2:  
+        case 10:  
         doll.style.filter =  "sepia(0.2) saturate(2) hue-rotate(-5deg) brightness(1.03) contrast(1.05)";
         dollclone.forEach (btn => {
             btn.style.filter =  "sepia(0.2) saturate(2) hue-rotate(-5deg) brightness(1.03) contrast(1.05)";
         });        
             break;
 
-        case 3:   
+        case 15:   
         doll.style.filter =  "sepia(0.2) saturate(3) hue-rotate(-5deg) brightness(1.03) contrast(1.05)";
         dollclone.forEach (btn => {
             btn.style.filter =  "sepia(0.2) saturate(3) hue-rotate(-5deg) brightness(1.03) contrast(1.05)";
         });       
             break;
 
-        case 4: 
+        case 20: 
             brain.disabled = true;  
             doll.style.filter =  "sepia(0.2) saturate(4) hue-rotate(-5deg) brightness(1.03) contrast(1.05)";
             dollclone.forEach (btn => {
@@ -98,7 +99,7 @@ function checklistDoll() {
         });        
             break;
 
-        case 5:
+        case 25:
             changePage();
             break;
 
@@ -114,38 +115,38 @@ function backAmbiance() {
 }
 
 
-function spawnItem() {
-    
-    doll.style.opacity = "0";
+function spawnItem(element = doll) {  // doll par défaut pour l'original
+    element.style.opacity = "0";
 
     setTimeout(() => {
-    const windowsx = window.innerWidth - doll.offsetWidth;
-    const windowsy = window.innerHeight - doll.offsetHeight;
+        const windowsx = window.innerWidth - element.offsetWidth;
+        const windowsy = window.innerHeight - element.offsetHeight;
 
-    const randomx = Math.random() * windowsx;
-    const randomy = Math.random() * windowsy;
+        const randomx = Math.random() * windowsx;
+        const randomy = Math.random() * windowsy;
 
-    doll.style.left = randomx + "px";
-    doll.style.top = randomy + "px";
-    doll.style.opacity = "1";
+        element.style.left = randomx + "px";
+        element.style.top = randomy + "px";
+        element.style.opacity = "1";
     }, 500);
 }
 
-function duplicateDoll(doll) {
-    const newDoll = doll.cloneNode(true); // clone
+function duplicateDoll(sourceDoll) {
+    const newDoll = sourceDoll.cloneNode(true);
     container.appendChild(newDoll);
     newDoll.classList.add("clone");
-
-    // Donner position absolue pour le clone
     newDoll.style.position = "absolute";
 
-    // Ajouter le même listener pour que le clone se duplique
+    // Utiliser newDoll dans le listener (pas sourceDoll!)
     newDoll.addEventListener("click", () => {
         duplicateDoll(newDoll);
+        numbOfDoll++;
+        checklistDoll();
+        dollcounter.innerHTML = numbOfDoll + "/25";
     });
 
-    // Lancer un spawn aléatoire pour le clone
-    spawnItem(newDoll);
+    spawnItem(newDoll);  // Passer newDoll en paramètre
+    dollTab.push(newDoll);
 }
 
 // Ajouter listener à la doll originale
@@ -153,7 +154,7 @@ doll.addEventListener("click", () => {
     duplicateDoll(doll);
     checklistDoll();
     numbOfDoll++
-    dollcounter.innerHTML = numbOfDoll + "/5";
+    dollcounter.innerHTML = numbOfDoll + "/25";
     console.log(numbOfDoll);
 });
 

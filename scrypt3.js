@@ -1,4 +1,8 @@
-
+if (sessionStorage.getItem("autorisePage3") !== ("true")) {
+    window.location.href = "main.html";
+} else {
+    sessionStorage.removeItem("autorisePage3");
+}
 
 let audio1 = new Audio('audio/sci-fi-sound-effect-designed-circuits-glitch-06-200812.mp3');
 let audio2 = new Audio('audio/sci-fi-sound-effect-designed-circuits-glitch-15-200839.mp3');
