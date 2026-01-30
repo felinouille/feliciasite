@@ -27,4 +27,6 @@ if (sessionStorage.getItem("autorisePage2") !== ("true")) {
 }
 cette condition regarde si vous venez bien de la page precedente. si oui vous continuer sinon vous aller a la page 1
 
-4- 
+4- dupliquer des element. en locurence la une img doll. avec une fonction de duplucation je cree une variable newdoll
+qui recupere la doll original et la clone const newDoll = doll.cloneNode(true);  ensuite je la met en temps que enfant dans
+ce qui sers de conteneur de la page container.appendChild(newDoll); puis je lui attribu une class pour pouvoir modifier son css newDoll.classList.add("clone"); pour finir je lui met un addeventlistener pour quand on clique dessu ca cree une nouvelle duplication 
