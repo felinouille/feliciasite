@@ -115,7 +115,7 @@ function backAmbiance() {
 }
 
 
-function spawnItem(element = doll) {  // doll par défaut pour l'original
+function spawnItem(element) {  // doll par défaut pour l'original
     element.style.opacity = "0";
 
     setTimeout(() => {
@@ -137,7 +137,7 @@ function duplicateDoll(sourceDoll) {
     newDoll.classList.add("clone");
     newDoll.style.position = "absolute";
 
-    // Utiliser newDoll dans le listener (pas sourceDoll!)
+    // Utiliser newDoll dans le listener
     newDoll.addEventListener("click", () => {
         duplicateDoll(newDoll);
         numbOfDoll++;
